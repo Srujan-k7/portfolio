@@ -1,3 +1,5 @@
+import type { BrandIconName } from "./brand-icons";
+
 /**
  * Every piece of copy on the site lives here.
  * Swap these dummy values for real ones — no component changes needed.
@@ -11,7 +13,7 @@ export type Social = {
 
 export type Stat = { value: number; suffix: string; label: string };
 
-export type SkillGroup = { title: string; blurb: string; skills: string[] };
+export type Tech = { name: string; icon: BrandIconName };
 
 export type Project = {
   slug: string;
@@ -26,7 +28,7 @@ export type Project = {
 };
 
 export type TimelineEntry = {
-  kind: "work" | "education";
+  kind: "work" | "Internship" | "education";
   role: string;
   org: string;
   period: string;
@@ -37,77 +39,56 @@ export type TimelineEntry = {
 
 export const profile = {
   name: "Srujan",
-  fullName: "Srujan Kumar",
+  fullName: "Srujan",
   initials: "SK",
   roles: [
-    "Full-Stack Engineer",
-    "React Specialist",
-    "Cloud Builder",
-    "UI Craftsman",
+    "Flutter Developer"
   ],
   tagline:
-    "I design and build fast, accessible web products — from the database schema all the way to the last pixel of the interface.",
-  location: "Bengaluru, India",
-  email: "hello@example.com",
-  phone: "+91 90000 00000",
+    "Building thoughtful digital experiences, one line of code at a time",
+  location: "Kasaragod, India",
+  email: "srujansrujan267@gmail.com",
+  phone: "+91 6282843638",
   availability: "Open to freelance & full-time roles",
   resumeUrl: "#",
 } as const;
 
 export const socials: Social[] = [
-  { label: "GitHub", href: "https://github.com", icon: "github" },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
-  { label: "X", href: "https://x.com", icon: "twitter" },
-  { label: "Email", href: "mailto:hello@example.com", icon: "mail" },
+  { label: "GitHub", href: "http://github.com/Srujan-k7", icon: "github" },
+  { label: "LinkedIn", href: "www.linkedin.com/in/srujank07", icon: "linkedin" },
+  { label: "X", href: "https://x.com/SrujanK28", icon: "twitter" },
+  { label: "Email", href: "mailto:srujansrujan267@gmail.com", icon: "mail" },
 ];
 
 export const about = {
   heading: "A bit about me",
   paragraphs: [
-    "I'm a full-stack engineer with a soft spot for interfaces that feel effortless. Most of my time goes into React and TypeScript on the front end, with Node and Postgres holding things together behind the scenes.",
-    "Before writing a line of code I like to understand the problem properly — who it's for, what breaks today, and what 'done' actually looks like. The rest is craft: clean state, honest loading states, and animation that guides rather than distracts.",
-    "Outside work you'll find me tinkering with side projects, reading about design systems, or chasing a decent cup of filter coffee.",
+    "I’m a passionate software developer who enjoys turning ideas into practical, user-friendly digital experiences.",
+    "I have hands-on experience with Flutter and full-stack development, along with technologies such as Java, Spring Boot, and Microservices.",
+    "I enjoy learning new technologies, solving problems, and continuously improving the way I build software. I’m always curious to explore, experiment, and create meaningful products through code.",
   ],
-  stats: [
-    { value: 5, suffix: "+", label: "Years experience" },
-    { value: 30, suffix: "+", label: "Projects shipped" },
-    { value: 12, suffix: "", label: "Happy clients" },
-    { value: 8, suffix: "", label: "Awards & mentions" },
-  ] as Stat[],
+  // stats: [
+  //   { value: 5, suffix: "+", label: "Years experience" },
+  //   { value: 30, suffix: "+", label: "Projects shipped" },
+  //   { value: 12, suffix: "", label: "Happy clients" },
+  //   { value: 8, suffix: "", label: "Awards & mentions" },
+  // ] as Stat[],
 };
 
-export const skillGroups: SkillGroup[] = [
-  {
-    title: "Frontend",
-    blurb: "Interfaces that stay fast as they grow.",
-    skills: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Framer Motion",
-      "Redux Toolkit",
-      "React Query",
-    ],
-  },
-  {
-    title: "Backend",
-    blurb: "APIs and data models built to last.",
-    skills: [
-      "Node.js",
-      "Express",
-      "PostgreSQL",
-      "Prisma",
-      "MongoDB",
-      "GraphQL",
-      "Redis",
-    ],
-  },
-  {
-    title: "Tooling & Cloud",
-    blurb: "Shipping, observing, and iterating safely.",
-    skills: ["AWS", "Docker", "GitHub Actions", "Vercel", "Playwright", "Figma"],
-  },
+/** Order here is the order of the logo grid. `icon` must exist in brand-icons.ts. */
+export const techStack: Tech[] = [
+  { name: "Flutter", icon: "flutter" },
+  { name: "Dart", icon: "dart" },
+  { name: "Java", icon: "java" },
+  { name: "Spring Boot", icon: "springboot" },
+  { name: "PostgreSQL", icon: "postgresql" },
+  { name: "MongoDB", icon: "mongodb" },
+  { name: "Redis", icon: "redis" },
+  { name: "RabbitMQ", icon: "rabbitmq" },
+  { name: "Docker", icon: "docker" },
+  { name: "Firebase", icon: "firebase" },
+  { name: "Git", icon: "git" },
+  { name: "GitHub", icon: "github" },
 ];
 
 export const projects: Project[] = [
@@ -184,24 +165,24 @@ export const projects: Project[] = [
 export const timeline: TimelineEntry[] = [
   {
     kind: "work",
-    role: "Senior Frontend Engineer",
-    org: "Lumina Labs",
-    period: "2024 — Present",
-    location: "Bengaluru, India",
+    role: "Flutter Developer",
+    org: "Synterra It Solutions Pvt Ltd",
+    period: "2026 Jul — Present",
+    location: "Mangalore, India",
     summary:
-      "Lead the web platform team building the customer-facing analytics suite.",
+      "Building and maintaining cross-platform mobile applications using Flutter, ensuring high performance and a seamless user experience.",
     highlights: [
-      "Cut initial bundle by 46% by moving the dashboard to server components",
-      "Introduced a design-token pipeline now used by four product teams",
-      "Mentor three engineers through weekly code review sessions",
+      "Built and fixed Flutter UI screens for a responsive user experience",
+      "Integration of GraphQL APIs for dynamic data and backend functionality",
+      "Debugged UI and API integration issues to improve app performance.",
     ],
   },
   {
-    kind: "work",
-    role: "Full-Stack Engineer",
-    org: "Northwind Systems",
-    period: "2022 — 2024",
-    location: "Remote",
+    kind: "Internship",
+    role: "Developer Intern",
+    org: "Synterra It Solutions Pvt Ltd",
+    period: "2026 Jan— 2026 Jun",
+    location: "Mangalore, India",
     summary:
       "Owned checkout and billing across the storefront and internal admin tools.",
     highlights: [
