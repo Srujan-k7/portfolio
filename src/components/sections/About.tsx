@@ -40,9 +40,9 @@ export function About() {
 
         <div>
           <RevealGroup className="space-y-5" stagger={0.12}>
-            {about.paragraphs.map((paragraph) => (
+            {about.paragraphs.map((paragraph, i) => (
               <motion.p
-                key={paragraph.slice(0, 24)}
+                key={i}
                 variants={fadeUp}
                 className="text-base leading-relaxed text-muted text-pretty sm:text-lg"
               >
@@ -51,7 +51,7 @@ export function About() {
             ))}
           </RevealGroup>
 
-          <RevealGroup
+          {/* <RevealGroup
             as="ul"
             stagger={0.09}
             delay={0.15}
@@ -69,7 +69,7 @@ export function About() {
                 <p className="mt-1 text-xs leading-snug text-muted">{stat.label}</p>
               </motion.li>
             ))}
-          </RevealGroup>
+          </RevealGroup> */}
         </div>
       </div>
     </Section>
