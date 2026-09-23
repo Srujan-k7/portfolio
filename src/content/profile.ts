@@ -206,8 +206,8 @@ export const timeline: TimelineEntry[] = [
   },
   {
     kind: "education",
-    role: "M.Tech, Computer Science",
-    org: "Institute of Technology",
+    role: "Master of Computer Applications, Computer Science",
+    org: "St Aloysius (Deemed to be University)",
     period: "2019 — 2021",
     location: "Hyderabad, India",
     summary:
