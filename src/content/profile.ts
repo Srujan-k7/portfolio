@@ -23,6 +23,8 @@ export type Project = {
   tech: string[];
   year: string;
   gradient: [string, string];
+  /** Screenshot path under `public/`, e.g. "/projects/syncwrite.png". Falls back to `gradient` art. */
+  image?: string;
   links: { live?: string; repo?: string };
   featured?: boolean;
 };
@@ -50,7 +52,7 @@ export const profile = {
   email: "srujansrujan267@gmail.com",
   phone: "+91 6282843638",
   availability: "Open to freelance & full-time roles",
-  resumeUrl: "#",
+  resumeUrl: "/Srujan_Resume.pdf",
 } as const;
 
 export const socials: Social[] = [
@@ -93,72 +95,27 @@ export const techStack: Tech[] = [
 
 export const projects: Project[] = [
   {
-    slug: "nebula-analytics",
-    title: "Nebula Analytics",
-    tagline: "Real-time product analytics dashboard",
+    slug: "syncwrite",
+    title: "SyncWrite",
+    tagline: "Real-time collaborative document editor",
     description:
-      "A streaming analytics dashboard that renders millions of events without dropping a frame. Built a virtualised chart layer, a query cache keyed on filter state, and a websocket pipeline that batches updates into animation frames.",
-    tech: ["Next.js", "TypeScript", "D3", "Redis", "WebSockets"],
+      "A collaborative editor where multiple users can edit the same document at once over WebSockets. Each keystroke is buffered in Redis for fast access and synchronisation across clients, and the final document state is persisted to PostgreSQL for consistency and durability.",
+    tech: ["Java", "Spring Boot", "WebSockets", "Redis", "PostgreSQL"],
     year: "2025",
     gradient: ["oklch(0.62 0.24 295)", "oklch(0.78 0.15 200)"],
-    links: { live: "#", repo: "#" },
+    links: { repo: "https://github.com/synterra-labs/26-syncwrite-srujan" },
     featured: true,
   },
   {
-    slug: "orbit-commerce",
-    title: "Orbit Commerce",
-    tagline: "Headless storefront with sub-second navigation",
+    slug: "mall-customer-segmentation",
+    title: "Mall Customer Segmentation",
+    tagline: "Finding the right customers with K-Means clustering",
     description:
-      "A headless e-commerce front end serving 40k monthly shoppers. Server components for catalogue pages, optimistic cart updates, and an edge-cached search endpoint brought median navigation under 400ms.",
-    tech: ["Next.js", "Stripe", "PostgreSQL", "Prisma", "Vercel"],
+      "A machine-learning project that groups mall customers by annual income and spending score using K-Means clustering. The elbow method picks the number of clusters, and the resulting segments help the mall owner identify high-value customers and target marketing at the right groups.",
+    tech: ["Python", "Pandas", "Scikit-learn", "K-Means", "Matplotlib"],
     year: "2025",
-    gradient: ["oklch(0.72 0.19 340)", "oklch(0.62 0.24 295)"],
-    links: { live: "#", repo: "#" },
-    featured: true,
-  },
-  {
-    slug: "atlas-design-system",
-    title: "Atlas Design System",
-    tagline: "48 components, one source of truth",
-    description:
-      "A component library and token pipeline adopted by four product teams. Design tokens flow from Figma into CSS variables at build time, and every component ships with docs, tests, and accessibility notes.",
-    tech: ["React", "Storybook", "Radix UI", "Style Dictionary"],
-    year: "2024",
-    gradient: ["oklch(0.78 0.15 200)", "oklch(0.68 0.2 150)"],
-    links: { repo: "#" },
-  },
-  {
-    slug: "pulse-monitor",
-    title: "Pulse Monitor",
-    tagline: "Uptime and incident tracking for small teams",
-    description:
-      "A self-hostable uptime monitor with multi-region checks, incident timelines, and status pages. The scheduler runs on cron workers and dedupes alerts so a single outage never becomes forty notifications.",
-    tech: ["Node.js", "Docker", "AWS Lambda", "MongoDB"],
-    year: "2024",
-    gradient: ["oklch(0.75 0.17 60)", "oklch(0.72 0.19 340)"],
-    links: { live: "#", repo: "#" },
-  },
-  {
-    slug: "verse-notes",
-    title: "Verse Notes",
-    tagline: "Offline-first collaborative notebook",
-    description:
-      "A markdown notebook that syncs across devices and keeps working on a plane. CRDT-backed merging, an IndexedDB cache, and a conflict view that shows exactly what changed and who changed it.",
-    tech: ["React", "CRDT", "IndexedDB", "GraphQL"],
-    year: "2023",
-    gradient: ["oklch(0.68 0.2 150)", "oklch(0.78 0.15 200)"],
-    links: { live: "#", repo: "#" },
-  },
-  {
-    slug: "lumen-portfolio-kit",
-    title: "Lumen Portfolio Kit",
-    tagline: "An open-source starter for developer sites",
-    description:
-      "A themeable portfolio starter with motion primitives, MDX case studies, and a Lighthouse budget enforced in CI. Around 900 stars and a steady stream of community themes.",
-    tech: ["Next.js", "MDX", "Tailwind CSS", "GitHub Actions"],
-    year: "2023",
-    gradient: ["oklch(0.62 0.24 295)", "oklch(0.75 0.17 60)"],
-    links: { live: "#", repo: "#" },
+    gradient: ["oklch(0.68 0.2 150)", "oklch(0.75 0.17 60)"],
+    links: {},
   },
 ];
 
@@ -191,42 +148,29 @@ export const timeline: TimelineEntry[] = [
       "Set up end-to-end tests that caught 30+ regressions before release",
     ],
   },
-  {
-    kind: "work",
-    role: "Frontend Developer",
-    org: "Craftbyte Studio",
-    period: "2021 — 2022",
-    location: "Hyderabad, India",
-    summary:
-      "Built marketing sites and web apps for early-stage startup clients.",
-    highlights: [
-      "Shipped 14 client projects averaging 96+ Lighthouse performance",
-      "Created the studio's reusable animation and layout toolkit",
-    ],
-  },
+
   {
     kind: "education",
-    role: "Master of Computer Applications, Computer Science",
+    role: "Master of Computer Applications",
     org: "St Aloysius (Deemed to be University)",
-    period: "2019 — 2021",
+    period: "2024 — 2026",
     location: "Hyderabad, India",
-    summary:
-      "Focused on distributed systems and human-computer interaction.",
-    highlights: [
-      "Thesis on latency-aware scheduling for edge workloads",
-      "Graduated with distinction",
-    ],
-  },
-  {
-    kind: "education",
-    role: "B.Tech, Information Technology",
-    org: "State Engineering College",
-    period: "2015 — 2019",
-    location: "Vijayawada, India",
-    summary: "Where the whole thing started, with a very ugly first website.",
+    summary: "Where I learned to build software that scales.",
     highlights: [
       "President of the coding club for two years",
-      "Won two inter-college hackathons",
+      "Participated in hackathons",
+    ],
+  },
+  {
+    kind: "education",
+    role: "B.Sc, Computer Science",
+    org: "GFGC Carstreet",
+    period: "2021 — 2024",
+    location: "Mangalore, India",
+    summary: "Where the whole thing started, with a very ugly first website.",
+    highlights: [
+      "Learned the fundamentals of programming and software development",
+      "Participated in coding competitions",
     ],
   },
 ];
@@ -235,7 +179,7 @@ export const navLinks = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
-  { id: "projects", label: "Work" },
+  { id: "projects", label: "Projects" },
   { id: "experience", label: "Journey" },
   { id: "contact", label: "Contact" },
 ] as const;

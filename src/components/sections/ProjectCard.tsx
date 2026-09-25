@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/content/profile";
 import { Tag } from "@/components/ui/Tag";
@@ -59,24 +60,36 @@ export function ProjectCard({
             background: `linear-gradient(135deg, ${project.gradient[0]}, ${project.gradient[1]})`,
           }}
         >
-          {/* Abstract placeholder art — swap for a screenshot later. */}
-          <div
-            aria-hidden
-            className="absolute inset-0 opacity-25 mix-blend-overlay"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 22% 28%, #fff 0, transparent 42%), radial-gradient(circle at 78% 72%, #fff 0, transparent 38%)",
-            }}
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage:
-                "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
-              backgroundSize: "34px 34px",
-            }}
-          />
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt=""
+              fill
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="object-cover"
+            />
+          ) : (
+            <>
+              {/* Abstract placeholder art, used until the project has a screenshot. */}
+              <div
+                aria-hidden
+                className="absolute inset-0 opacity-25 mix-blend-overlay"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle at 22% 28%, #fff 0, transparent 42%), radial-gradient(circle at 78% 72%, #fff 0, transparent 38%)",
+                }}
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0 opacity-20"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+                  backgroundSize: "34px 34px",
+                }}
+              />
+            </>
+          )}
           <span className="absolute top-3 right-3 rounded-full bg-black/25 px-2.5 py-1 font-mono text-[11px] text-white backdrop-blur">
             {project.year}
           </span>
