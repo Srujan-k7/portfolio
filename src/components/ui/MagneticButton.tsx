@@ -8,6 +8,8 @@ import { useMotionSafe } from "@/lib/motion";
 type Props = {
   children: ReactNode;
   href?: string;
+  /** Set on links to files; the value is the suggested filename. */
+  download?: string;
   onClick?: () => void;
   variant?: "primary" | "ghost";
   className?: string;
@@ -19,6 +21,7 @@ type Props = {
 export function MagneticButton({
   children,
   href,
+  download,
   onClick,
   variant = "primary",
   className = "",
@@ -82,6 +85,7 @@ export function MagneticButton({
       <motion.a
         ref={ref as React.Ref<HTMLAnchorElement>}
         href={href}
+        download={download}
         whileTap={safe ? { scale: 0.96 } : undefined}
         {...shared}
       >

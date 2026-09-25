@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { Globe, X } from "lucide-react";
 import { GithubIcon } from "@/components/ui/SocialIcon";
@@ -94,15 +95,25 @@ export function ProjectModal({
                 background: `linear-gradient(135deg, ${project.gradient[0]}, ${project.gradient[1]})`,
               }}
             >
-              <div
-                aria-hidden
-                className="absolute inset-0 opacity-20"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
-                  backgroundSize: "34px 34px",
-                }}
-              />
+              {project.image ? (
+                <Image
+                  src={project.image}
+                  alt={`Screenshot of ${project.title}`}
+                  fill
+                  sizes="(min-width: 672px) 672px, 100vw"
+                  className="object-cover"
+                />
+              ) : (
+                <div
+                  aria-hidden
+                  className="absolute inset-0 opacity-20"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+                    backgroundSize: "34px 34px",
+                  }}
+                />
+              )}
               <button
                 type="button"
                 onClick={onClose}

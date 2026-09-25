@@ -15,12 +15,12 @@ export function Projects() {
   return (
     <Section
       id="projects"
-      eyebrow="Selected work"
+      eyebrow="Projects"
       title="Things I've built"
-      description="A mix of client work and side projects. Click any card for the longer story."
+      description="Projects I've designed and built. Click any card for the longer story."
     >
       <RevealGroup
-        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        className="grid gap-6 sm:grid-cols-2"
         stagger={0.09}
       >
         {projects.map((project) => (

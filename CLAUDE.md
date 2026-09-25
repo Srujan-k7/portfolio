@@ -39,13 +39,13 @@ credit line, layout's "Skip to content". `Section.tsx` itself holds no copy — 
 So: data → `profile.ts`; headings and microcopy → grep the component.
 
 Still placeholder: name "Srujan Kumar", `hello@example.com`, `+91 90000 00000`, socials point at
-bare `github.com`/`linkedin.com`/`x.com`, `resumeUrl: "#"`, all six projects are invented with
-`links: "#"`, timeline orgs are fictional. Other placeholders: About uses an initials monogram
-instead of a photo, project cards use CSS-gradient art instead of screenshots, and the Contact
+bare `github.com`/`linkedin.com`/`x.com`, `resumeUrl` → `public/Srujan_Resume.pdf`; SyncWrite links its repo but
+Mall Customer Segmentation has empty `links`, and both years are unconfirmed, timeline orgs are fictional. Other placeholders: About uses an initials monogram
+instead of a photo, project cards use CSS-gradient art unless the project sets `image` (a `public/projects/` path), and the Contact
 form fakes a 1.2s submit then says "this is a demo form" — no endpoint is wired.
 
 `navLinks` ids must match section ids: `home about skills projects experience contact`
-(labels differ: Work → `projects`, Journey → `experience`). Nav scroll-spy keys off these.
+(label differs: Journey → `experience`). Nav scroll-spy keys off these.
 
 ## Theming
 

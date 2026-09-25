@@ -78,7 +78,11 @@ export function Hero() {
             View my work
             <ArrowUpRight size={16} />
           </MagneticButton>
-          <MagneticButton href={profile.resumeUrl} variant="ghost">
+          <MagneticButton
+            href={profile.resumeUrl}
+            download="Srujan_Resume.pdf"
+            variant="ghost"
+          >
             <Download size={16} />
             Download CV
           </MagneticButton>
